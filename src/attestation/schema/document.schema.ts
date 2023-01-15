@@ -8,16 +8,10 @@ import { type } from 'os';
 export class Document {
   
   @Prop()
-  institution: string;
+  wrappedDoc: string;
 
   @Prop()
-  dateTime: number;
-
-  @Prop()
-  claim: string;
-
-  @Prop()
-  valid: string;
+  docRoot: string;
   
   
 }

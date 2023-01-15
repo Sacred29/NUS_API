@@ -20,10 +20,20 @@ constructor(
 
 @Post('/Issue')
 async wrapper(@Body() documents: ClaimDto){
-    console.log('1a')
-    const hi = await this.attestationService.wrap(documents,);
-    console.log('1b')
-    return hi
+    
+    return await this.attestationService.wrap(documents);
+    
+}
+
+@Get('/wrappedDoc/:docRoot')
+@ApiParam({name: "docRoot"})
+async getWrappedDoc (@Param() {docRoot}) {
+    return await this.attestationService.getWrappedDoc(docRoot)
+}
+
+@Post('DocStore')
+async deploy(){
+    return await this.attestationService.deploy()
 }
 }
 
