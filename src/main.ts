@@ -5,6 +5,12 @@ import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule, );
 
+  app.enableCors();
+
+  const apiPrefix = process.env.API_PREFIX ?? '/api/v1';
+  const port = process.env.PORT ?? 3000;
+
+  app.setGlobalPrefix(apiPrefix);
   // Swagger bootstrap
   const config = new DocumentBuilder()
     .setTitle('Gift of Caring')
@@ -13,10 +19,9 @@ async function bootstrap() {
     .addBearerAuth()
     // .addTag('cats')
     .build();
+
   const document = SwaggerModule.createDocument(app, config);
-  SwaggerModule.setup('/api/v1', app, document);
-
-
-  await app.listen(3000);
+  SwaggerModule.setup('api', app, document);
+  await app.listen(port);
 }
 bootstrap();

@@ -21,7 +21,10 @@
     "test:e2e": "jest --config ./test/jest-e2e.json"
   },
   "dependencies": {
-    "@nestjs/common": "^9.0.0",
+    "@govtechsg/document-store": "^2.6.1",
+    "@govtechsg/open-attestation": "^6.6.0",
+    "@nestjs/axios": "^1.0.1",
+    "@nestjs/common": "^9.2.1",
     "@nestjs/config": "^2.2.0",
     "@nestjs/core": "^9.0.0",
     "@nestjs/jwt": "^9.0.0",
@@ -35,6 +38,9 @@
     "@types/passport-jwt": "^3.0.6",
     "@types/passport-local": "^1.0.34",
     "bcrypt": "^5.0.1",
+    "bip39": "^3.0.4",
+    "cli-color": "^2.0.3",
+    "ethereumjs-tx": "^2.1.2",
     "js-sha3": "^0.8.0",
     "mongoose": "^6.6.1",
     "passport": "^0.6.0",
