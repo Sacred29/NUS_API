@@ -31,9 +31,9 @@ async getWrappedDoc (@Param() {docRoot}) {
     return await this.attestationService.getWrappedDoc(docRoot)
 }
 
-@Post('DocStore')
-async deploy(){
-    return await this.attestationService.deploy()
-}
+// @Post('DocStore')
+// async deploy(){
+//     return await this.attestationService.deploy()
+// }
 }
 

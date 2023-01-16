@@ -23,7 +23,12 @@ import { LoggerModule } from './logger/logger.module';
   imports: [
     MongooseModule.forRoot(`mongodb://localhost/care`,),
     ConfigModule.forRoot(),
-  UserModule, AuthModule, TokenModule, AttestationModule, Web3Module, LoggerModule],
+  UserModule, 
+  AuthModule, 
+  TokenModule, 
+  AttestationModule, 
+  Web3Module, 
+  LoggerModule],
   controllers: [AppController, TokenController, AttestationController],
   providers: [AppService],
 })

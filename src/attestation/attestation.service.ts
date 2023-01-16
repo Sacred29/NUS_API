@@ -35,12 +35,7 @@ export class AttestationService {
             process.env.DOCSTORE_FACTORY,
         );
 
-        const docStore = process.env.DOCSTORE
-
-        console.log('3')
-
-
-
+        const docStore = await factoryContract.methods.assets(process.env.WALLET_ADDR).call();
 
         const fullDocument = {
 
@@ -119,9 +114,14 @@ export class AttestationService {
 
         const tx = await new EthereumTx(rawTx, { chain: `${process.env.ISSUEDOC_NETWORK}` });
         tx.sign(Buffer.from(`${process.env.WALLET_PRIV}`, 'hex'));
-        console.log
+    
         const serializedTx = tx.serialize();
 
+        
+        web3.eth
+            .sendSignedTransaction('0x' + serializedTx.toString('hex'))
+            .on('receipt', console.log);
+        
 
         //save into db
         const docDB = new this.docModel({
@@ -130,9 +130,7 @@ export class AttestationService {
         })
         await docDB.save()
         // finalize signing
-        web3.eth
-            .sendSignedTransaction('0x' + serializedTx.toString('hex'))
-            .on('receipt', console.log);
+       
 
         return { 'docHash': `0x${docRoot}`, wrappedDoc }
 
