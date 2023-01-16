@@ -1,0 +1,8 @@
+function downloadjson1() {
+    var jsondownload = JSON.parse("{\"version\":\"https://schema.openattestation.com/2.0/schema.json\",\"data\":{\"$template\":{\"name\":\"6b64d318-0206-453d-8d28-fd030baa6dce:string:main\",\"type\":\"3a181e22-9df1-4947-b6c5-e47c926bc153:string:EMBEDDED_RENDERER\",\"url\":\"769079b1-a238-4eb7-938f-91e916ba28b1:string:https://ephemeral-pastelito-b01b67.netlify.app\"},\"issuers\":[{\"documentStore\":\"a7c4e3f4-05a3-41c3-9883-5fa60ce3248e:string:0x8983bADb7d791ae2F234D8971673dEd396189754\",\"name\":\"89a7c7c8-0604-4307-97d5-933badbbb68a:string:Panda Bank\",\"identityProof\":{\"type\":\"afd89e4f-c74d-4f9d-b55b-0e1fbf718440:string:DNS-TXT\",\"location\":\"79cb53be-130a-4eeb-a55d-7d5d4301a905:string:filthy-gold-termite.sandbox.openattestation.com\"}}],\"amount\":\"781c9bf3-db65-4cb9-aeac-ae40efb947a9:number:0\",\"Id\":\"c1f6c456-cdc8-4f7a-a7cc-09da9dcd66c3:string:string\",\"issueDate\":\"8fcae561-c5d7-4050-93f9-dfd2b3ef7a65:number:0\",\"expiryDate\":\"6b425a96-b89a-4a8a-872b-d5e0a484452a:number:0\",\"BankName\":\"9b532bfd-a9c0-4b2d-972b-7b04858fa20b:string:string\",\"status\":\"782c0a74-ac58-490a-ae9e-07630f80bcd2:string:string\"},\"signature\":{\"type\":\"SHA3MerkleProof\",\"targetHash\":\"a9937607ecd074bd46b6bb52bc6c6e12ad8d68535a03d07e59f2e7bd8e22f94d\",\"proof\":[],\"merkleRoot\":\"a9937607ecd074bd46b6bb52bc6c6e12ad8d68535a03d07e59f2e7bd8e22f94d\"}}")
+    var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify({jsondownload}));
+    var downloadAnchorNode = document.createElement('a');
+    downloadAnchorNode.setAttribute("href",dataStr);
+    downloadAnchorNode.setAttribute("download", exportName + ".json");
+    downloadAnchorNode.click()
+}
